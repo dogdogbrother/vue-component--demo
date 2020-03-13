@@ -8,6 +8,12 @@
       <i-form-item label="邮箱" prop="mail">
         <i-input v-model="formValidate.mail"></i-input>
       </i-form-item>
+      <i-form-item label="性别" prop="gender">
+        <i-checkboxGroup v-model="formValidate.gender" trueValue="1" falseValue="0">
+          <i-checkbox label="男">男</i-checkbox>
+          <i-checkbox label="女">女</i-checkbox>
+        </i-checkboxGroup>
+      </i-form-item>
     </i-form>
     <button @click="handleSubmit">提交</button>
     <button @click="handleReset">重置</button>
@@ -18,17 +24,23 @@
 import IForm from '../components/form/form'
 import IFormItem from '../components/form/form-item'
 import IInput from '../components/input/input'
+
+import ICheckbox from '../components/checkbox/checkbox'
+import ICheckboxGroup from '../components/checkbox/checkbox-group'
 export default {
   components:{
     IForm,
     IFormItem,
-    IInput
+    IInput,
+    ICheckbox,
+    ICheckboxGroup
   },
   data () {
     return {
       formValidate: {
         name: '',
-        mail: ''
+        mail: '',
+        gender: []
       },
       ruleValidate: {
         name: [
@@ -39,6 +51,9 @@ export default {
           { type: 'email', message: '邮箱格式不正确', trigger: 'change' },
           { type: 'email', message: '邮箱格式不正确', trigger: 'blur' },
         ],
+        gender: [
+          { type: 'array', required: true, message: '给老子选!', trigger: 'blur' },
+        ]
       }
     }
   },
@@ -52,7 +67,10 @@ export default {
         }
       })
     },
-    handleReset () {}
+    handleReset () {},
+    checkChange (value) {
+      console.log(value)
+    }
   }
 }
 

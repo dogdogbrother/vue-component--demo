@@ -1,15 +1,18 @@
 <template>
   <div id="app">
     <my-form></my-form>
+    <my-display></my-display>
   </div>
 </template>
 
 <script>
 import MyForm from './views/form'
+import MyDisplay from './views/display'
 export default {
   name: 'app',
   components: {
-    MyForm
+    MyForm,
+    MyDisplay
   }
 }
 </script>
