@@ -1,18 +1,21 @@
 <template>
   <div id="app">
     <my-form></my-form>
-    <my-display></my-display>
+    <my-display style="margin-top: 50px;"></my-display>
+    <my-alert style="margin-top: 50px;"></my-alert>
   </div>
 </template>
 
 <script>
 import MyForm from './views/form'
 import MyDisplay from './views/display'
+import MyAlert from './views/alert'
 export default {
   name: 'app',
   components: {
     MyForm,
-    MyDisplay
+    MyDisplay,
+    MyAlert
   }
 }
 </script>
